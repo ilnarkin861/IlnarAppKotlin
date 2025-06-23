@@ -12,19 +12,18 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import ru.ilnarkin.ilnarappkotlin.R
+import ru.ilnarkin.ilnarappkotlin.routes.NavRoutes
 
 
-@Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun NotesScreen () {
+fun NotesScreen (navController: NavController) {
     Box(modifier = Modifier.fillMaxWidth().fillMaxHeight()){
         Box(modifier = Modifier.fillMaxHeight().fillMaxWidth(),
             contentAlignment = Alignment.Center){
@@ -40,7 +39,7 @@ fun NotesScreen () {
             shape = CircleShape,
             modifier = Modifier.align(Alignment.BottomEnd)
                 .absolutePadding(bottom=20.dp, right=20.dp).background(Color.Transparent),
-            onClick = { }) {
+            onClick = { navController.navigate(NavRoutes.NoteAddScreen.route) }) {
             Icon(painter = painterResource(R.drawable.ic_add_notes), contentDescription = "Добавить")
         }
     }

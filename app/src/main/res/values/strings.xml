@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Ilnar App</string>
     <string name="title_notes">Записи</string>
+    <string name="title_note_add">Добавить запись</string>
     <string name="title_tags">Теги</string>
     <string name="title_archive">Архив</string>
     <string name="title_search">Поиск</string>

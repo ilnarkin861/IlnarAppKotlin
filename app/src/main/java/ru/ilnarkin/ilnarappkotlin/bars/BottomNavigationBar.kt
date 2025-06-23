@@ -1,7 +1,6 @@
 package ru.ilnarkin.ilnarappkotlin.bars
 
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Icon
@@ -39,22 +38,24 @@ fun BottomNavigationBar (navController: NavController) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentRoute = navBackStackEntry?.destination?.route
 
-        NavigationBarItem(
-            selected = currentRoute == NavRoutes.NotesScreen.route,
-            colors = colors,
-            onClick = {
-                navController.navigate(NavRoutes.NotesScreen.route) {
-                    launchSingleTop = false
-                    restoreState = true
-                }
-            },
-            icon = {
-                Icon(imageVector = ImageVector.vectorResource(R.drawable.ic_note),
-                    contentDescription = stringResource(R.string.title_notes)
-                )
-            },
-            label = { Text(stringResource(R.string.title_notes)) }
-        )
+        if (currentRoute != null) {
+            NavigationBarItem(
+                selected = currentRoute.contains(NavRoutes.NotesScreen.route),
+                colors = colors,
+                onClick = {
+                    navController.navigate(NavRoutes.NotesScreen.route) {
+                        launchSingleTop = false
+                        restoreState = true
+                    }
+                },
+                icon = {
+                    Icon(imageVector = ImageVector.vectorResource(R.drawable.ic_note),
+                        contentDescription = stringResource(R.string.title_notes)
+                    )
+                },
+                label = { Text(stringResource(R.string.title_notes)) }
+            )
+        }
 
         NavigationBarItem(
             selected = currentRoute == NavRoutes.TagsScreen.route,
