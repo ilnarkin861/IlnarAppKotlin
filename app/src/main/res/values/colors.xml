@@ -2,4 +2,7 @@
 <resources>
     <color name="appPrimaryColor">#ff026cd6</color>
     <color name="bottomNavColor">#ff808080</color>
+    <color name="titlesColor">#ff363636</color>
+    <color name="textColor">#ff696969</color>
+    <color name="borderColor">#ffd1cfcf</color>
 </resources>
