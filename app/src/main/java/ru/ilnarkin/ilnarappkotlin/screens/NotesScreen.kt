@@ -33,7 +33,7 @@ fun NotesScreen (navController: NavController) {
             contentColor = Color.White,
             shape = CircleShape,
             modifier = Modifier.align(Alignment.BottomEnd)
-                .absolutePadding(bottom=20.dp, right=20.dp).background(Color.Transparent),
+                .absolutePadding(bottom=30.dp, right=30.dp).background(Color.Transparent),
             onClick = { navController.navigate(NavRoutes.NoteAddScreen.route) }) {
             Icon(painter = painterResource(R.drawable.ic_add_notes), contentDescription = "Добавить")
         }

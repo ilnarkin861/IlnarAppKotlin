@@ -38,7 +38,7 @@ fun TagsScreen () {
             contentColor = Color.White,
             shape = CircleShape,
             modifier = Modifier.align(Alignment.BottomEnd)
-                .absolutePadding(bottom=20.dp, right=20.dp).background(Color.Transparent),
+                .absolutePadding(bottom=30.dp, right=30.dp).background(Color.Transparent),
             onClick = { }) {
             Icon(painter = painterResource(R.drawable.ic_add), contentDescription = "Добавить")
         }
