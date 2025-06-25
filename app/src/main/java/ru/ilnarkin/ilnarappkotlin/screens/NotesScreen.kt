@@ -25,7 +25,7 @@ import ru.ilnarkin.ilnarappkotlin.routes.NavRoutes
 fun NotesScreen (navController: NavController) {
     Box(modifier = Modifier.fillMaxSize()){
         LazyColumn{
-            items (10) {value -> NoteItemComponent() }
+            items (10) {value -> NoteItemComponent(navController) }
         }
 
         FloatingActionButton(

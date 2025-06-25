@@ -30,19 +30,19 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import ru.ilnarkin.ilnarappkotlin.R
+import ru.ilnarkin.ilnarappkotlin.routes.NavRoutes
 
 
-@Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun NoteItemComponent() {
+fun NoteItemComponent(navController: NavController) {
 
-    val bigText = "Но консультация с широким активом способствует повышению качества направлений прогрессивного развития. Приятно, граждане, наблюдать, как многие известные личности, превозмогая сложившуюся непростую экономическую ситуацию, превращены в посмешище, хотя само их существование приносит несомненную пользу обществу."
     var expanded by remember { mutableStateOf(false) }
 
 
@@ -57,7 +57,6 @@ fun NoteItemComponent() {
                 horizontalArrangement = Arrangement.SpaceBetween) {
                 Row(modifier = Modifier.weight(3f))  {
                     Text(
-                        modifier = Modifier.wrapContentHeight(),
                         text = "Постоянный количественный рост бодрит",
                         fontSize = 16.sp,
                         color = colorResource(R.color.titlesColor),
@@ -78,7 +77,13 @@ fun NoteItemComponent() {
                     )
                     {
                         DropdownMenuItem(
-                            onClick = { },
+                            onClick = {
+                                expanded = false
+                                navController.navigate(NavRoutes.NoteViewScreen.route) {
+                                    launchSingleTop = false
+                                    restoreState = true
+                                }
+                            },
                             leadingIcon = {Icon(
                                 painter = painterResource(R.drawable.ic_view),
                                 contentDescription = "View",
@@ -87,7 +92,9 @@ fun NoteItemComponent() {
                         )
 
                         DropdownMenuItem(
-                            onClick = { },
+                            onClick = {
+                                expanded = false
+                            },
                             leadingIcon = {Icon(painter = painterResource(R.drawable.ic_edit),
                                 contentDescription = "Edit",
                                 tint = colorResource(R.color.appPrimaryColor))},
@@ -95,7 +102,9 @@ fun NoteItemComponent() {
                         )
 
                         DropdownMenuItem(
-                            onClick = { },
+                            onClick = {
+                                expanded = false
+                            },
                             leadingIcon = {Icon(painter = painterResource(R.drawable.ic_delete),
                                 contentDescription = "Delete",
                                 tint = Color.Red)},
@@ -108,7 +117,7 @@ fun NoteItemComponent() {
 
             Row(modifier = Modifier.padding(bottom = 20.dp)) {
                 Text(
-                    text = bigText,
+                    text = stringResource(R.string.longTestText),
                     color = colorResource(R.color.textColor),
                     maxLines = 3,
                     lineHeight = 1.5.em,
