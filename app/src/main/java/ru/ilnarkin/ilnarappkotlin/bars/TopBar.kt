@@ -32,6 +32,7 @@ fun TopBar(navController: NavController) {
     val title = when(route){
         NavRoutes.NotesScreen.route -> stringResource(R.string.title_notes)
         NavRoutes.NoteAddScreen.route -> stringResource(R.string.title_note_add)
+        NavRoutes.NoteViewScreen.route -> stringResource(R.string.title_note_view)
         NavRoutes.TagsScreen.route -> stringResource(R.string.title_tags)
         NavRoutes.ArchiveScreen.route -> stringResource(R.string.title_archive)
         NavRoutes.SearchScreen.route -> stringResource(R.string.title_search)
