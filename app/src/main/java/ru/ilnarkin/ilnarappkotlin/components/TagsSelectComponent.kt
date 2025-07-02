@@ -12,7 +12,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Clear
+import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.Icon
@@ -40,7 +40,7 @@ fun TagsSelect(allTags: MutableList<String>) {
 
     var selectedTags = remember { mutableStateListOf<String>() }
     var selectedTagsCount = remember { mutableIntStateOf(0) }
-    var addedTags = mutableListOf<String>()
+    var addedTags = remember { mutableListOf<String>() }
 
     for (i in 1..5){
         addedTags.add("Тег $i")
@@ -120,10 +120,8 @@ fun TagsSelect(allTags: MutableList<String>) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(150.dp)
-                .padding(top = 10.dp)
-                .verticalScroll(rememberScrollState())){
-            addedTags.forEach{tag ->
+                .padding(top = 10.dp)){
+            addedTags.forEachIndexed{index, tag ->
                 Row(
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically,
@@ -133,11 +131,11 @@ fun TagsSelect(allTags: MutableList<String>) {
                     IconButton(
                         modifier = Modifier.size(20.dp),
                         onClick = {
-                            addedTags.remove(tag)
+
                         }
                     ) {
                         Icon(
-                            imageVector = Icons.Filled.Clear,
+                            imageVector = Icons.Outlined.Delete,
                             contentDescription = "",
                             tint = Color.Red)
                     }
