@@ -86,7 +86,7 @@ fun NoteItemComponent(navController: NavController) {
                             leadingIcon = {Icon(
                                 painter = painterResource(R.drawable.ic_view),
                                 contentDescription = "View",
-                                tint = colorResource(R.color.appPrimaryColor))},
+                                tint = colorResource(R.color.textColor))},
                             text = { Text(text = "Просмотр", color = colorResource(R.color.textColor)) }
                         )
 
@@ -96,7 +96,7 @@ fun NoteItemComponent(navController: NavController) {
                             },
                             leadingIcon = {Icon(painter = painterResource(R.drawable.ic_edit),
                                 contentDescription = "Edit",
-                                tint = colorResource(R.color.appPrimaryColor))},
+                                tint = colorResource(R.color.textColor))},
                             text = {Text(text = "Изменить", color = colorResource(R.color.textColor))}
                         )
 
