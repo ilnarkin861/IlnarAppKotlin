@@ -66,7 +66,7 @@ fun NoteItemComponent(navController: NavController) {
                     IconButton(onClick = { expanded = true }, modifier = Modifier.size(24.dp)) {
                         Icon(Icons.Default.MoreVert,
                             contentDescription = "Меню",
-                            tint = colorResource(R.color.appPrimaryColor))
+                            tint = Color.Gray)
                     }
 
                     DropdownMenu(
@@ -140,7 +140,7 @@ fun NoteItemComponent(navController: NavController) {
                         color = Color.Gray)
                 }
 
-                Row(verticalAlignment = Alignment.CenterVertically) {
+                /*Row(verticalAlignment = Alignment.CenterVertically) {
                     Icon(modifier = Modifier.padding(end = 4.dp).size(15.dp),
                         painter = painterResource(R.drawable.ic_photo),
                         contentDescription = "Photos",
@@ -148,7 +148,7 @@ fun NoteItemComponent(navController: NavController) {
                     Text(modifier = Modifier.alpha(0.7f),
                         text = "0",
                         color = Color.Gray)
-                }
+                }*/
             }
         }
     }
