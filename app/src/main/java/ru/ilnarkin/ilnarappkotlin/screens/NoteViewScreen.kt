@@ -87,7 +87,7 @@ fun NoteViewScreen() {
                 verticalAlignment = Alignment.CenterVertically) {
                 Icon(modifier = Modifier.padding(end = 4.dp).size(20.dp),
                     painter = painterResource(R.drawable.ic_archive),
-                    contentDescription = "Note type",
+                    contentDescription = "Archive",
                     tint = colorResource(R.color.appPrimaryColor))
 
                 Text(
