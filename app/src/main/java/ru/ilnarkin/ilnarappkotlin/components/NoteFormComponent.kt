@@ -51,7 +51,7 @@ fun NoteFormComponent() {
 
     Column(modifier = Modifier
         .fillMaxSize()
-        .padding(start = 15.dp, top = 20.dp, end = 15.dp, bottom = 40.dp)
+        .padding(start = 15.dp, top = 20.dp, end = 15.dp)
         .verticalScroll(rememberScrollState()),) {
 
         NoteTypeDropdownMenu(noteTypes)
@@ -117,7 +117,7 @@ fun NoteFormComponent() {
         Button(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(top = 50.dp)
+                .padding(top = 50.dp, bottom = 40.dp)
                 .height(60.dp),
             shape = RoundedCornerShape(0.dp),
             colors = ButtonDefaults.buttonColors(containerColor = colorResource(R.color.appPrimaryColor)),
