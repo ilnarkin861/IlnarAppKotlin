@@ -19,7 +19,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -28,7 +27,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImage
 import ru.ilnarkin.ilnarappkotlin.R
 
 
@@ -39,12 +37,6 @@ fun NoteViewScreen() {
     val noteType = "Событие"
     val archiveTitle = "Название архива"
     val tags = arrayOf("Какой-то тег", "Какой-то тег2", "Какой-то тег3")
-    val images = arrayOf(
-        "https://avatars.mds.yandex.net/get-mpic/11047949/2a0000018c1dbabb372a82ea1a9f4eec81dc/orig",
-        "https://i.pinimg.com/originals/aa/c1/1a/aac11ab900fe395deb94345d5ea2c117.jpg",
-        "https://mir-s3-cdn-cf.behance.net/project_modules/1400/2f639160984749.5a5f92c5ee7b8.jpg",
-        "https://avatars.mds.yandex.net/i?id=bfe6b125b2c531537640a2115be53424_l-5545493-images-thumbs&n=13"
-    )
 
 
     Box(modifier = Modifier.fillMaxSize().background(Color.White)){
@@ -124,17 +116,6 @@ fun NoteViewScreen() {
                     color = colorResource(R.color.textColor),
                     lineHeight = 1.5.em,
                     fontSize = 16.sp)
-            }
-
-            Column(modifier = Modifier.padding(top = 70.dp)) {
-                for (image in  images){
-                    AsyncImage(
-                        modifier = Modifier.padding(bottom = 20.dp),
-                        model = image,
-                        contentDescription = null,
-                        contentScale = ContentScale.Fit
-                    )
-                }
             }
         }
     }
