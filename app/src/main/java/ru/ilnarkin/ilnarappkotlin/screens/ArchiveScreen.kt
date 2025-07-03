@@ -2,9 +2,12 @@ package ru.ilnarkin.ilnarappkotlin.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.absolutePadding
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -19,18 +22,20 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ru.ilnarkin.ilnarappkotlin.R
+import ru.ilnarkin.ilnarappkotlin.components.ListItemComponent
 
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun ArchiveScreen() {
     Box(modifier = Modifier.fillMaxWidth().fillMaxHeight()){
-        Box(modifier = Modifier.fillMaxHeight().fillMaxWidth(),
-            contentAlignment = Alignment.Center){
-            Text("Archive screen",
-                fontSize = 16.sp,
-                color = Color.Blue
-            )
+        LazyColumn(modifier = Modifier.padding(horizontal = 20.dp)) {
+            items(20) {
+                    value ->  ListItemComponent("Архив ${value + 1}")
+            }
+            item {
+                Row(modifier = Modifier.padding(bottom = 100.dp)) {  }
+            }
         }
 
         FloatingActionButton(
