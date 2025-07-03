@@ -39,6 +39,7 @@ fun NoteViewScreen() {
     val tags = arrayOf("Какой-то тег", "Какой-то тег2", "Какой-то тег3")
 
 
+
     Box(modifier = Modifier.fillMaxSize().background(Color.White)){
         Column(modifier = Modifier
             .padding(start = 15.dp, top = 20.dp, end = 15.dp, bottom = 25.dp)
