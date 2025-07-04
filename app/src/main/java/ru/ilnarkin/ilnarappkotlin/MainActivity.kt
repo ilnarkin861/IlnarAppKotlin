@@ -52,7 +52,7 @@ fun Main() {
 
     Column(modifier = Modifier.displayCutoutPadding()) {
         TopBar(navController)
-        NavHost(navController, startDestination = NavRoutes.SearchScreen.route, modifier = Modifier.weight(1f)) {
+        NavHost(navController, startDestination = NavRoutes.NotesScreen.route, modifier = Modifier.weight(1f)) {
             composable(NavRoutes.NotesScreen.route) { NotesScreen(navController = navController) }
             composable(NavRoutes.NoteAddScreen.route) { NoteAddScreen() }
             composable(NavRoutes.NoteViewScreen.route) { NoteViewScreen() }
