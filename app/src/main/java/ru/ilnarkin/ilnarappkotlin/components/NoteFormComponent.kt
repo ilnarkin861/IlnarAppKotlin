@@ -244,12 +244,17 @@ fun NoteFormComponent() {
             buttons = {
                 positiveButton(
                     text = "Ок",
-                    textStyle = TextStyle(color = colorResource(R.color.appPrimaryColor)),
+                    textStyle = TextStyle(
+                        color = colorResource(R.color.appPrimaryColor),
+                        fontWeight = FontWeight.SemiBold),
                     onClick = { dateDialogState.hide()},
                 )
                 negativeButton(
                     text = "Закрыть",
-                    textStyle = TextStyle(color = colorResource(R.color.appPrimaryColor)))
+                    textStyle = TextStyle(
+                        color = colorResource(R.color.appPrimaryColor),
+                        fontWeight = FontWeight.SemiBold)
+                )
             }
         ) {
             datepicker(
