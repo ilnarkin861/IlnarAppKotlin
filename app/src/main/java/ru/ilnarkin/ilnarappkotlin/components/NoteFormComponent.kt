@@ -93,9 +93,11 @@ fun NoteFormComponent() {
     var selectedNoteType by remember { mutableStateOf(noteTypes[0]) }
     var noteTypeMenuIsExpanded by remember { mutableStateOf(false) }
 
-    val archives = listOf("Архив 1", "Архив 1", "Архив 3", "Архив 4", "Архив 5")
+    val notSelectedArchiveTitle = "Архив не выбран"
+    var archiveSelected by remember { mutableStateOf(false) }
+    val archives = listOf("Архив 1", "Архив 2", "Архив 3", "Архив 4", "Архив 5")
     var archiveIsExpanded by remember { mutableStateOf(false) }
-    var selectedArchive by remember { mutableStateOf("Выбери архив") }
+    var selectedArchive by remember { mutableStateOf(notSelectedArchiveTitle) }
 
     var tags = mutableListOf<String>()
     var alreadyTags = remember { addedTags.toMutableStateList() }
@@ -291,6 +293,16 @@ fun NoteFormComponent() {
                 onDismissRequest = { archiveIsExpanded = false},
                 containerColor = Color.White
             ) {
+                DropdownMenuItem(
+                    modifier = Modifier.background(Color.White),
+                    colors = MenuDefaults.itemColors(textColor = colorResource(R.color.textColor)),
+                    text = {Text(text = notSelectedArchiveTitle)},
+                    onClick = {
+                        selectedArchive = notSelectedArchiveTitle
+                        archiveSelected = false
+                        archiveIsExpanded = false
+                    }
+                )
                 archives.forEach {archive ->
                     DropdownMenuItem(
                         modifier = Modifier.background(Color.White),
@@ -298,6 +310,7 @@ fun NoteFormComponent() {
                         text = {Text(text = archive)},
                         onClick = {
                             selectedArchive = archive
+                            archiveSelected = true
                             archiveIsExpanded = false
                         }
                     )
