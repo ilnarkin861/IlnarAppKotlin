@@ -135,8 +135,8 @@ fun NoteFormComponent() {
                     focusedLabelColor = colorResource(R.color.appPrimaryColor),
                     focusedTrailingIconColor = colorResource(R.color.appPrimaryColor),
                     unfocusedTrailingIconColor = colorResource(R.color.appPrimaryColor),
-                    focusedTextColor = colorResource(R.color.titlesColor),
-                    unfocusedTextColor = colorResource(R.color.titlesColor)
+                    focusedTextColor = colorResource(R.color.textColor),
+                    unfocusedTextColor = colorResource(R.color.textColor)
                 ),
                 shape = RoundedCornerShape(0.dp),
                 trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = noteTypeMenuIsExpanded)}
@@ -149,6 +149,7 @@ fun NoteFormComponent() {
                 noteTypes.forEach {noteType ->
                     DropdownMenuItem(
                         modifier = Modifier.background(Color.White),
+                        colors = MenuDefaults.itemColors(textColor = colorResource(R.color.textColor)),
                         text = {Text(text = noteType)},
                         onClick = {
                             selectedNoteType = noteType
@@ -184,8 +185,7 @@ fun NoteFormComponent() {
         OutlinedTextField(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(250.dp)
-                .padding(bottom = 10.dp),
+                .height(250.dp),
             value = noteText.value,
             minLines = 10,
             label = { Text("Текст") },
@@ -210,15 +210,14 @@ fun NoteFormComponent() {
             Text(
                 text = "Обязательное поле",
                 color = Color.Red,
-                fontSize = 13.sp,
-                fontWeight = FontWeight.Light
+                fontSize = 13.sp
             )
         }
 
 
         // Note date picker field
         OutlinedTextField(
-            modifier = Modifier.fillMaxWidth().padding(top = 25.dp),
+            modifier = Modifier.fillMaxWidth().padding(top = 28.dp, bottom = 28.dp),
             readOnly = true,
             enabled = false,
             value = formattedDate,
@@ -270,7 +269,7 @@ fun NoteFormComponent() {
 
         // Archive dropdown menu
         ExposedDropdownMenuBox(
-            modifier = Modifier.fillMaxWidth().padding(top=25.dp),
+            modifier = Modifier.fillMaxWidth().padding(bottom = 20.dp),
             expanded = archiveIsExpanded,
             onExpandedChange = { archiveIsExpanded = !archiveIsExpanded }
         ){
