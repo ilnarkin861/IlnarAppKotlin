@@ -103,7 +103,21 @@ fun SearchScreen (navController: NavController) {
     }
 
     Box(modifier = Modifier.fillMaxSize()){
-        LazyColumn{
+
+        Box(
+            modifier = Modifier.fillMaxWidth().height(50.dp)
+                .padding(horizontal = 8.dp).background(Color.White),
+            contentAlignment = Alignment.CenterStart
+        ) {
+            Text(
+                text = "В этот день год назад...",
+                color = Color.Gray,
+                fontSize = 18.sp
+                )
+        }
+
+
+        LazyColumn(modifier = Modifier.padding(top = 50.dp)){
             items (10) {value -> NoteItemComponent(navController) }
         }
 
