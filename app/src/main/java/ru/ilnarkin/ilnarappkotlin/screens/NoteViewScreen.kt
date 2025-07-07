@@ -41,6 +41,16 @@ fun NoteViewScreen() {
 
 
     Box(modifier = Modifier.fillMaxSize().background(Color.White)){
+
+        /*Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center){
+            Text("Запись не найдена",
+                fontSize = 16.sp,
+                color = Color.Gray
+            )
+        }*/
+
         Column(modifier = Modifier
             .padding(start = 15.dp, top = 20.dp, end = 15.dp, bottom = 25.dp)
             .fillMaxWidth().verticalScroll(rememberScrollState())) {

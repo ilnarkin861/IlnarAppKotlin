@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.absolutePadding
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -26,7 +27,17 @@ import ru.ilnarkin.ilnarappkotlin.components.ListItemComponent
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun ArchiveScreen() {
-    Box(modifier = Modifier.fillMaxWidth().fillMaxHeight()){
+    Box(modifier = Modifier.fillMaxSize()){
+
+        /*Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center){
+            Text("Архивов нет",
+                fontSize = 16.sp,
+                color = Color.Gray
+            )
+        }*/
+
         LazyColumn(modifier = Modifier.padding(horizontal = 20.dp)) {
             items(20) {
                     value ->  ListItemComponent("Архив ${value + 1}")

@@ -27,6 +27,16 @@ import ru.ilnarkin.ilnarappkotlin.components.ListItemComponent
 fun TagsScreen () {
 
     Box(modifier = Modifier.fillMaxSize()){
+
+        /*Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center){
+            Text("Тегов нет",
+                fontSize = 16.sp,
+                color = Color.Gray
+            )
+        }*/
+
         LazyColumn(modifier = Modifier.padding(horizontal = 20.dp)) {
             items(20) {
                 value ->  ListItemComponent("Тег ${value + 1}")
