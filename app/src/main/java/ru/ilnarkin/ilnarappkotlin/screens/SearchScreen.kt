@@ -116,19 +116,19 @@ fun SearchScreen (navController: NavController) {
                 )
         }
 
-        Box(
+        /*Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center){
             Text("Записей нет",
                 fontSize = 16.sp,
                 color = Color.Gray
             )
-        }
-
-
-        /*LazyColumn(modifier = Modifier.padding(top = 50.dp)){
-            items (10) {value -> NoteItemComponent(navController) }
         }*/
+
+
+        LazyColumn(modifier = Modifier.padding(top = 50.dp)){
+            items (10) {value -> NoteItemComponent(navController) }
+        }
 
         if (showBottomSheet){
             ModalBottomSheet(
