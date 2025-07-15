@@ -1,5 +1,6 @@
 package ru.ilnarkin.ilnarappkotlin.components
 
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -33,6 +34,17 @@ import ru.ilnarkin.ilnarappkotlin.R
 fun ListItemComponent(text: String) {
 
     var expanded by remember { mutableStateOf(false) }
+    var deleteButtonClicked by remember { mutableStateOf(false) }
+
+    if (deleteButtonClicked){
+        ConfirmComponent(
+            closed = {deleteButtonClicked = false},
+            confirmed = {
+                deleteButtonClicked = false
+                //....
+            }
+        )
+    }
 
     Row(
         modifier = Modifier.fillMaxWidth().padding(vertical = 12.dp)) {
@@ -72,6 +84,7 @@ fun ListItemComponent(text: String) {
                     DropdownMenuItem(
                         onClick = {
                             expanded = false
+                            deleteButtonClicked = true
                         },
                         leadingIcon = {Icon(painter = painterResource(R.drawable.ic_delete),
                             contentDescription = "Delete",

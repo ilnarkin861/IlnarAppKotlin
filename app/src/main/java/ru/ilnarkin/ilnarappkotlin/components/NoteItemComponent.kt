@@ -43,6 +43,17 @@ import ru.ilnarkin.ilnarappkotlin.routes.NavRoutes
 fun NoteItemComponent(navController: NavController) {
 
     var expanded by remember { mutableStateOf(false) }
+    var deleteButtonClicked by remember { mutableStateOf(false) }
+
+    if (deleteButtonClicked){
+        ConfirmComponent(
+            closed = {deleteButtonClicked = false},
+            confirmed = {
+                deleteButtonClicked = false
+                //....
+            }
+        )
+    }
 
 
     Box(modifier = Modifier.fillMaxWidth()
@@ -106,6 +117,7 @@ fun NoteItemComponent(navController: NavController) {
 
                         DropdownMenuItem(
                             onClick = {
+                                deleteButtonClicked = true
                                 expanded = false
                             },
                             leadingIcon = {Icon(painter = painterResource(R.drawable.ic_delete),
