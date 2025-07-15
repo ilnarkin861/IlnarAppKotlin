@@ -5,4 +5,7 @@
     <color name="titlesColor">#ff363636</color>
     <color name="textColor">#ff696969</color>
     <color name="borderColor">#ffd1cfcf</color>
+    <color name="successColor">#ff016111</color>
+    <color name="warningColor">#ffcfac00</color>
+    <color name="errorColor">#ff730000</color>
 </resources>
