@@ -93,6 +93,10 @@ fun NoteItemComponent(navController: NavController) {
                         DropdownMenuItem(
                             onClick = {
                                 expanded = false
+                                navController.navigate(NavRoutes.NoteEditScreen.route) {
+                                    launchSingleTop = false
+                                    restoreState = true
+                                }
                             },
                             leadingIcon = {Icon(painter = painterResource(R.drawable.ic_edit),
                                 contentDescription = "Edit",

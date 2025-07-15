@@ -20,6 +20,7 @@ import ru.ilnarkin.ilnarappkotlin.bars.TopBar
 import ru.ilnarkin.ilnarappkotlin.routes.NavRoutes
 import ru.ilnarkin.ilnarappkotlin.screens.ArchiveScreen
 import ru.ilnarkin.ilnarappkotlin.screens.NoteAddScreen
+import ru.ilnarkin.ilnarappkotlin.screens.NoteEditScreen
 import ru.ilnarkin.ilnarappkotlin.screens.NoteViewScreen
 import ru.ilnarkin.ilnarappkotlin.screens.NotesScreen
 import ru.ilnarkin.ilnarappkotlin.screens.SearchScreen
@@ -55,6 +56,7 @@ fun Main() {
         NavHost(navController, startDestination = NavRoutes.NotesScreen.route, modifier = Modifier.weight(1f)) {
             composable(NavRoutes.NotesScreen.route) { NotesScreen(navController = navController) }
             composable(NavRoutes.NoteAddScreen.route) { NoteAddScreen() }
+            composable(NavRoutes.NoteEditScreen.route) { NoteEditScreen() }
             composable(NavRoutes.NoteViewScreen.route) { NoteViewScreen() }
             composable(NavRoutes.TagsScreen.route) { TagsScreen() }
             composable(NavRoutes.ArchiveScreen.route) { ArchiveScreen() }
