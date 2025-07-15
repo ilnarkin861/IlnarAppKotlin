@@ -418,7 +418,7 @@ fun NoteFormComponent() {
                                 Icon(
                                     imageVector = Icons.Outlined.Delete,
                                     contentDescription = "",
-                                    tint = Color.Red)
+                                    tint = colorResource(R.color.errorColor))
                             }
                         }
                     }
