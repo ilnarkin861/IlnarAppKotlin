@@ -61,16 +61,19 @@ fun TopBar(navController: NavController) {
             else null
         },
 
-
         actions={
             IconButton(
                 colors = IconButtonDefaults.iconButtonColors(
                     contentColor = Color.White
                 ),
                 onClick = {
-                    navController.navigate(NavRoutes.NotesScreen.route) {
-                        launchSingleTop = false
+                    navController.navigate(NavRoutes.SettingsScreen.route) {
+                        launchSingleTop = true
                         restoreState = true
+
+                        popUpTo(NavRoutes.SettingsScreen.route){
+                            saveState = true
+                        }
                     }
                 }){Icon(painter = painterResource(R.drawable.ic_settings), contentDescription = "Настройки")}
 

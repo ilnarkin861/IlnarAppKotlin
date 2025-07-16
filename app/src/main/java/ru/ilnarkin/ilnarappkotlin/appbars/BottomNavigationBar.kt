@@ -38,32 +38,42 @@ fun BottomNavigationBar (navController: NavController) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentRoute = navBackStackEntry?.destination?.route
 
-        if (currentRoute != null) {
-            NavigationBarItem(
-                selected = currentRoute.contains(NavRoutes.NotesScreen.route),
-                colors = colors,
-                onClick = {
-                    navController.navigate(NavRoutes.NotesScreen.route) {
-                        launchSingleTop = false
-                        restoreState = true
+        NavigationBarItem(
+            selected = currentRoute?.contains(NavRoutes.NotesScreen.route) == true,
+            colors = colors,
+            onClick = {
+                navController.navigate(NavRoutes.NotesScreen.route) {
+                    launchSingleTop = true
+                    restoreState = true
+
+                    currentRoute?.let {
+                        popUpTo(it){
+                            saveState = true
+                        }
                     }
-                },
-                icon = {
-                    Icon(imageVector = ImageVector.vectorResource(R.drawable.ic_note),
-                        contentDescription = stringResource(R.string.title_notes)
-                    )
-                },
-                label = { Text(stringResource(R.string.title_notes)) }
-            )
-        }
+                }
+            },
+            icon = {
+                Icon(imageVector = ImageVector.vectorResource(R.drawable.ic_note),
+                    contentDescription = stringResource(R.string.title_notes)
+                )
+            },
+            label = { Text(stringResource(R.string.title_notes)) }
+        )
 
         NavigationBarItem(
             selected = currentRoute == NavRoutes.TagsScreen.route,
             colors =colors,
             onClick = {
                 navController.navigate(NavRoutes.TagsScreen.route) {
-                    launchSingleTop = false
+                    launchSingleTop = true
                     restoreState = true
+
+                    currentRoute?.let {
+                        popUpTo(it){
+                            saveState = true
+                        }
+                    }
                 }
             },
             icon = {
@@ -78,8 +88,14 @@ fun BottomNavigationBar (navController: NavController) {
             colors = colors,
             onClick = {
                 navController.navigate(NavRoutes.ArchiveScreen.route) {
-                    launchSingleTop = false
+                    launchSingleTop = true
                     restoreState = true
+
+                    currentRoute?.let {
+                        popUpTo(it){
+                            saveState = true
+                        }
+                    }
                 }
             },
             icon = {
@@ -94,8 +110,14 @@ fun BottomNavigationBar (navController: NavController) {
             colors = colors,
             onClick = {
                 navController.navigate(NavRoutes.SearchScreen.route) {
-                    launchSingleTop = false
+                    launchSingleTop = true
                     restoreState = true
+
+                    currentRoute?.let {
+                        popUpTo(it){
+                            saveState = true
+                        }
+                    }
                 }
             },
             icon = {
