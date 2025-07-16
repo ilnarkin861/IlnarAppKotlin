@@ -31,7 +31,10 @@ import ru.ilnarkin.ilnarappkotlin.R
 
 
 @Composable
-fun ListItemComponent(text: String) {
+fun ListItemComponent(
+    text: String,
+    currentItem: (text: String) -> Unit
+    ) {
 
     var expanded by remember { mutableStateOf(false) }
     var deleteButtonClicked by remember { mutableStateOf(false) }
@@ -74,6 +77,7 @@ fun ListItemComponent(text: String) {
                     DropdownMenuItem(
                         onClick = {
                             expanded = false
+                            currentItem(text)
                         },
                         leadingIcon = {Icon(painter = painterResource(R.drawable.ic_pencil),
                             contentDescription = "Edit",
