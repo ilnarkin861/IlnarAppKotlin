@@ -1,4 +1,4 @@
-package ru.ilnarkin.ilnarappkotlin.bars
+package ru.ilnarkin.ilnarappkotlin.appbars
 
 import androidx.compose.foundation.border
 import androidx.compose.material3.NavigationBar

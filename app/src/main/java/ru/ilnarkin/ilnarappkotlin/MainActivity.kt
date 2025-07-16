@@ -15,8 +15,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import ru.ilnarkin.ilnarappkotlin.bars.BottomNavigationBar
-import ru.ilnarkin.ilnarappkotlin.bars.TopBar
+import ru.ilnarkin.ilnarappkotlin.appbars.BottomNavigationBar
+import ru.ilnarkin.ilnarappkotlin.appbars.TopBar
 import ru.ilnarkin.ilnarappkotlin.routes.NavRoutes
 import ru.ilnarkin.ilnarappkotlin.screens.ArchiveScreen
 import ru.ilnarkin.ilnarappkotlin.screens.NoteAddScreen
