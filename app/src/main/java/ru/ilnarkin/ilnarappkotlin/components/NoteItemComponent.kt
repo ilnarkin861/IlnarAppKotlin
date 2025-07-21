@@ -122,8 +122,8 @@ fun NoteItemComponent(navController: NavController) {
                             },
                             leadingIcon = {Icon(painter = painterResource(R.drawable.ic_delete),
                                 contentDescription = "Delete",
-                                tint = Color.Red)},
-                            text = {Text(text = "Удалить", color = Color.Red)}
+                                tint = colorResource(R.color.errorColor))},
+                            text = {Text(text = "Удалить", color = colorResource(R.color.errorColor))}
                         )
                     }
                 }
