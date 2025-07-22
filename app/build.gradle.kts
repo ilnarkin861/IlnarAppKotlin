@@ -57,6 +57,7 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.7.0")
     implementation ("io.github.vanpra.compose-material-dialogs:core:0.9.0")
     implementation ("io.github.vanpra.compose-material-dialogs:datetime:0.9.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
