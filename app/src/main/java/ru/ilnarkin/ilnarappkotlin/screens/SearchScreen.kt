@@ -50,16 +50,24 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import ru.ilnarkin.ilnarappkotlin.R
 import ru.ilnarkin.ilnarappkotlin.components.NoteItemComponent
+import ru.ilnarkin.ilnarappkotlin.viewModels.ArchiveViewModel
+import ru.ilnarkin.ilnarappkotlin.viewModels.NoteViewModel
+import ru.ilnarkin.ilnarappkotlin.viewModels.TagViewModel
 import java.time.LocalDate
 
 
 @RequiresApi(Build.VERSION_CODES.O)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SearchScreen (navController: NavController) {
+fun SearchScreen (
+    navController: NavController,
+    noteViewModel: NoteViewModel = viewModel(),
+    tagViewModel: TagViewModel = viewModel(),
+    archiveViewModel: ArchiveViewModel = viewModel()) {
 
     val sheetState = rememberModalBottomSheetState()
     var showBottomSheet by remember { mutableStateOf(false) }

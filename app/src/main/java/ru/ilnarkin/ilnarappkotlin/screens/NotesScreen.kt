@@ -17,14 +17,19 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import ru.ilnarkin.ilnarappkotlin.R
 import ru.ilnarkin.ilnarappkotlin.components.NoteItemComponent
 import ru.ilnarkin.ilnarappkotlin.routes.NavRoutes
+import ru.ilnarkin.ilnarappkotlin.viewModels.NoteViewModel
 
 
 @Composable
-fun NotesScreen (navController: NavController) {
+fun NotesScreen (
+    navController: NavController,
+    noteViewModel: NoteViewModel = viewModel()
+    ) {
     Box(modifier = Modifier.fillMaxSize()){
         /*Box(
             modifier = Modifier.fillMaxSize(),

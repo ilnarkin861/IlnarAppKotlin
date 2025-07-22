@@ -23,14 +23,16 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import ru.ilnarkin.ilnarappkotlin.R
 import ru.ilnarkin.ilnarappkotlin.components.ItemModalFormComponent
 import ru.ilnarkin.ilnarappkotlin.components.ListItemComponent
+import ru.ilnarkin.ilnarappkotlin.viewModels.ArchiveViewModel
 
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun ArchiveScreen() {
+fun ArchiveScreen(archiveViewModel: ArchiveViewModel = viewModel()) {
     Box(modifier = Modifier.fillMaxSize()){
 
         var modalFormOpened by remember { mutableStateOf(false) }

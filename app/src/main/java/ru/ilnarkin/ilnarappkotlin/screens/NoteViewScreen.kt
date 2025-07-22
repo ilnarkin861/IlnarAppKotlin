@@ -27,12 +27,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import ru.ilnarkin.ilnarappkotlin.R
+import ru.ilnarkin.ilnarappkotlin.viewModels.NoteViewModel
 
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun NoteViewScreen() {
+fun NoteViewScreen(noteViewModel: NoteViewModel = viewModel()) {
 
     val noteType = "Событие"
     val archiveTitle = "Название архива"
