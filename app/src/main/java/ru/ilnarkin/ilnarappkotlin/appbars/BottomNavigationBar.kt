@@ -44,7 +44,7 @@ fun BottomNavigationBar (navController: NavController) {
             onClick = {
                 navController.navigate(NavRoutes.NotesScreen.route) {
                     launchSingleTop = true
-                    restoreState = true
+                    restoreState = false
 
                     currentRoute?.let {
                         popUpTo(it){
@@ -67,7 +67,7 @@ fun BottomNavigationBar (navController: NavController) {
             onClick = {
                 navController.navigate(NavRoutes.TagsScreen.route) {
                     launchSingleTop = true
-                    restoreState = true
+                    restoreState = false
 
                     currentRoute?.let {
                         popUpTo(it){
@@ -89,7 +89,7 @@ fun BottomNavigationBar (navController: NavController) {
             onClick = {
                 navController.navigate(NavRoutes.ArchiveScreen.route) {
                     launchSingleTop = true
-                    restoreState = true
+                    restoreState = false
 
                     currentRoute?.let {
                         popUpTo(it){
@@ -111,7 +111,7 @@ fun BottomNavigationBar (navController: NavController) {
             onClick = {
                 navController.navigate(NavRoutes.SearchScreen.route) {
                     launchSingleTop = true
-                    restoreState = true
+                    restoreState = false
 
                     currentRoute?.let {
                         popUpTo(it){

@@ -69,7 +69,7 @@ fun TopBar(navController: NavController) {
                 onClick = {
                     navController.navigate(NavRoutes.SettingsScreen.route) {
                         launchSingleTop = true
-                        restoreState = true
+                        restoreState = false
 
                         popUpTo(NavRoutes.SettingsScreen.route){
                             saveState = true
