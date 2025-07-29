@@ -11,6 +11,8 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.colorResource
@@ -25,8 +27,17 @@ import ru.ilnarkin.ilnarappkotlin.routes.NavRoutes
 fun BottomNavigationBar (navController: NavController) {
 
     NavigationBar(
-        modifier = Modifier.border(width = 1.dp, color = Color.LightGray),
-        containerColor = Color.White,
+        modifier = Modifier.drawBehind {
+            var borderStrokeWidth = 2.dp
+            val strokeWidthPx = borderStrokeWidth.toPx()
+            drawLine(
+                color = Color.Gray,
+                start = Offset(x = 0f, y = 0f),
+                end = Offset(x = size.width, y = 0f),
+                strokeWidth = strokeWidthPx
+            )
+        },
+        containerColor = colorResource(R.color.bottomBarBgColor),
     ) {
         val colors = NavigationBarItemDefaults.colors(
             selectedIconColor = colorResource(R.color.appPrimaryColor),
