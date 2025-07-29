@@ -8,10 +8,20 @@ import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.displayCutoutPadding
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.foundation.layout.calculateEndPadding
+import androidx.compose.foundation.layout.calculateStartPadding
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeContent
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -26,7 +36,6 @@ import ru.ilnarkin.ilnarappkotlin.screens.NotesScreen
 import ru.ilnarkin.ilnarappkotlin.screens.SearchScreen
 import ru.ilnarkin.ilnarappkotlin.screens.SettingsScreen
 import ru.ilnarkin.ilnarappkotlin.screens.TagsScreen
-import ru.ilnarkin.ilnarappkotlin.ui.theme.IlnarAppKotlinTheme
 
 
 class MainActivity : ComponentActivity() {
@@ -35,7 +44,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            IlnarAppKotlinTheme {
+            Column(Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding()) {
                 Main()
             }
         }
