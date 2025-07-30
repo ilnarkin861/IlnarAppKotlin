@@ -81,8 +81,8 @@ fun ListItemComponent(
                         },
                         leadingIcon = {Icon(painter = painterResource(R.drawable.ic_pencil),
                             contentDescription = "Edit",
-                            tint = colorResource(R.color.textColor))},
-                        text = {Text(text = "Изменить", color = colorResource(R.color.textColor))}
+                            tint = colorResource(R.color.appPrimaryColor))},
+                        text = {Text(text = "Изменить", color = colorResource(R.color.appPrimaryColor))}
                     )
 
                     DropdownMenuItem(
