@@ -201,15 +201,15 @@ fun NoteFormComponent() {
                     focusedLabelColor = colorResource(R.color.appPrimaryColor),
                     focusedTextColor = colorResource(R.color.titlesColor),
                     unfocusedTextColor = colorResource(R.color.titlesColor),
-                    errorLabelColor = Color.Red,
-                    errorBorderColor = Color.Red
+                    errorLabelColor = colorResource(R.color.errorColor),
+                    errorBorderColor = colorResource(R.color.errorColor)
                 ),
             shape = RoundedCornerShape(10.dp))
 
         if (isNoteTextError){
             Text(
                 text = "Обязательное поле",
-                color = Color.Red,
+                color = colorResource(R.color.errorColor),
                 fontSize = 13.sp
             )
         }
