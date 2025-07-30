@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -26,6 +28,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -55,106 +58,113 @@ fun NoteItemComponent(navController: NavController) {
         )
     }
 
-
     Box(modifier = Modifier.fillMaxWidth()
-            .padding(horizontal = 8.dp, vertical = 10.dp)
+        .padding(10.dp)
+        .shadow(elevation = 2.dp, shape = RoundedCornerShape(10.dp))){
+        Box(modifier = Modifier.fillMaxSize()
             .background(color = Color.White)
-            .border(width = 1.dp, shape = RoundedCornerShape(10.dp), color = colorResource(R.color.borderColor))
-            .padding(start = 15.dp, top = 20.dp, end = 15.dp, bottom = 25.dp)){
+            .defaultMinSize(minHeight = 150.dp)
+            .border(
+                width = 1.dp,
+                shape = RoundedCornerShape(10.dp),
+                color = colorResource(R.color.borderColor))){
+            Column(Modifier.padding(start = 15.dp, top = 20.dp, end = 15.dp, bottom = 25.dp)) {
+                Row(
+                    modifier = Modifier.padding(bottom = 10.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween) {
+                    Row(modifier = Modifier.weight(3f))  {
+                        Text(
+                            text = "Постоянный количественный рост бодрит",
+                            fontSize = 16.sp,
+                            color = colorResource(R.color.titlesColor),
+                            fontWeight = FontWeight.SemiBold)
+                    }
+                    Row{
+                        IconButton(onClick = { expanded = true }, modifier = Modifier.size(24.dp)) {
+                            Icon(Icons.Default.MoreVert,
+                                contentDescription = "Меню",
+                                tint = Color.Gray)
+                        }
 
-        Column (modifier = Modifier.fillMaxWidth()){
-            Row(
-                modifier = Modifier.padding(bottom = 10.dp),
-                horizontalArrangement = Arrangement.SpaceBetween) {
-                Row(modifier = Modifier.weight(3f))  {
+                        DropdownMenu(
+                            modifier = Modifier.background(Color.White),
+                            expanded = expanded,
+                            onDismissRequest = { expanded = false }
+                        )
+                        {
+
+                            DropdownMenuItem(
+                                onClick = {
+                                    expanded = false
+                                    navController.navigate(NavRoutes.NoteViewScreen.route) {
+                                        launchSingleTop = false
+                                        restoreState = true
+                                    }
+                                },
+                                leadingIcon = {Icon(
+                                    painter = painterResource(R.drawable.ic_view),
+                                    contentDescription = "View",
+                                    tint = colorResource(R.color.appPrimaryColor))},
+                                text = { Text(text = "Просмотр", color = colorResource(R.color.appPrimaryColor)) }
+                            )
+
+                            DropdownMenuItem(
+                                onClick = {
+                                    expanded = false
+                                    navController.navigate(NavRoutes.NoteEditScreen.route) {
+                                        launchSingleTop = false
+                                        restoreState = true
+                                    }
+                                },
+                                leadingIcon = {Icon(painter = painterResource(R.drawable.ic_edit),
+                                    contentDescription = "Edit",
+                                    tint = colorResource(R.color.appPrimaryColor))},
+                                text = {Text(text = "Изменить", color = colorResource(R.color.appPrimaryColor))}
+                            )
+
+                            DropdownMenuItem(
+                                onClick = {
+                                    deleteButtonClicked = true
+                                    expanded = false
+                                },
+                                leadingIcon = {Icon(painter = painterResource(R.drawable.ic_delete),
+                                    contentDescription = "Delete",
+                                    tint = colorResource(R.color.errorColor))},
+                                text = {Text(text = "Удалить", color = colorResource(R.color.errorColor))}
+                            )
+                        }
+                    }
+                }
+
+                Row(modifier = Modifier.padding(bottom = 20.dp)) {
                     Text(
-                        text = "Постоянный количественный рост бодрит",
-                        fontSize = 16.sp,
-                        color = colorResource(R.color.titlesColor),
-                        fontWeight = FontWeight.SemiBold)
+                        text = stringResource(R.string.longTestText),
+                        color = colorResource(R.color.textColor),
+                        maxLines = 3,
+                        lineHeight = 1.5.em,
+                        fontSize = 14.sp)
                 }
 
-                Row{
-                    IconButton(onClick = { expanded = true }, modifier = Modifier.size(24.dp)) {
-                        Icon(Icons.Default.MoreVert,
-                            contentDescription = "Меню",
-                            tint = Color.Gray)
-                    }
-
-                    DropdownMenu(
-                        modifier = Modifier.background(Color.White),
-                        expanded = expanded,
-                        onDismissRequest = { expanded = false }
-                    )
-                    {
-                        DropdownMenuItem(
-                            onClick = {
-                                expanded = false
-                                navController.navigate(NavRoutes.NoteViewScreen.route) {
-                                    launchSingleTop = false
-                                    restoreState = true
-                                }
-                            },
-                            leadingIcon = {Icon(
-                                painter = painterResource(R.drawable.ic_view),
-                                contentDescription = "View",
-                                tint = colorResource(R.color.textColor))},
-                            text = { Text(text = "Просмотр", color = colorResource(R.color.textColor)) }
-                        )
-
-                        DropdownMenuItem(
-                            onClick = {
-                                expanded = false
-                                navController.navigate(NavRoutes.NoteEditScreen.route) {
-                                    launchSingleTop = false
-                                    restoreState = true
-                                }
-                            },
-                            leadingIcon = {Icon(painter = painterResource(R.drawable.ic_edit),
-                                contentDescription = "Edit",
-                                tint = colorResource(R.color.textColor))},
-                            text = {Text(text = "Изменить", color = colorResource(R.color.textColor))}
-                        )
-
-                        DropdownMenuItem(
-                            onClick = {
-                                deleteButtonClicked = true
-                                expanded = false
-                            },
-                            leadingIcon = {Icon(painter = painterResource(R.drawable.ic_delete),
-                                contentDescription = "Delete",
-                                tint = colorResource(R.color.errorColor))},
-                            text = {Text(text = "Удалить", color = colorResource(R.color.errorColor))}
-                        )
-                    }
+                Row {
+                    HorizontalDivider(thickness = 0.5.dp, color = colorResource(R.color.borderColor))
                 }
-            }
 
+                Row(modifier = Modifier.fillMaxWidth().padding(top = 20.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween) {
 
-            Row(modifier = Modifier.padding(bottom = 20.dp)) {
-                Text(
-                    text = stringResource(R.string.longTestText),
-                    color = colorResource(R.color.textColor),
-                    maxLines = 3,
-                    lineHeight = 1.5.em,
-                    fontSize = 14.sp)
-            }
-
-            Row {
-                HorizontalDivider(thickness = 0.5.dp, color = colorResource(R.color.borderColor))
-            }
-
-            Row(modifier = Modifier.fillMaxWidth().padding(top = 20.dp),
-                horizontalArrangement = Arrangement.SpaceBetween){
-
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Icon(modifier = Modifier.padding(end = 4.dp).size(15.dp),
-                        painter = painterResource(R.drawable.ic_calendar),
-                        contentDescription = "Date",
-                        tint = colorResource(R.color.appPrimaryColor))
-                    Text(modifier = Modifier.alpha(0.7f),
-                        text = "24.06.2025",
-                        color = Color.Gray)
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(
+                            modifier = Modifier.padding(end = 4.dp).size(15.dp),
+                            painter = painterResource(R.drawable.ic_calendar),
+                            contentDescription = "Date",
+                            tint = colorResource(R.color.appPrimaryColor)
+                        )
+                        Text(
+                            modifier = Modifier.alpha(0.7f),
+                            text = "24.06.2025",
+                            color = Color.Gray
+                        )
+                    }
                 }
 
                 /*Row(verticalAlignment = Alignment.CenterVertically) {
@@ -167,6 +177,7 @@ fun NoteItemComponent(navController: NavController) {
                         color = Color.Gray)
                 }*/
             }
+
         }
     }
 }
