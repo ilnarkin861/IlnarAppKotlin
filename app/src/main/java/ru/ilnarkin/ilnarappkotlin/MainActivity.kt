@@ -6,6 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.displayCutoutPadding
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,6 +15,7 @@ import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -55,7 +57,9 @@ fun Main() {
 
     Column(modifier = Modifier.displayCutoutPadding()) {
         TopBar(navController)
-        NavHost(navController, startDestination = NavRoutes.NotesScreen.route, modifier = Modifier.weight(1f)) {
+        NavHost(navController,
+            startDestination = NavRoutes.NotesScreen.route,
+            modifier = Modifier.weight(1f).background(Color.White)) {
             composable(NavRoutes.NotesScreen.route) { NotesScreen(navController = navController) }
             composable(NavRoutes.NoteAddScreen.route) { NoteAddScreen() }
             composable(NavRoutes.NoteEditScreen.route) { NoteEditScreen() }
