@@ -78,7 +78,7 @@ fun ItemModalFormComponent(
                             errorLabelColor = colorResource(R.color.errorColor),
                             errorBorderColor = colorResource(R.color.errorColor)
                         ),
-                        shape = RoundedCornerShape(0.dp))
+                        shape = RoundedCornerShape(10.dp))
                 }
 
                 if (itemTextIsError){
@@ -98,7 +98,7 @@ fun ItemModalFormComponent(
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(60.dp),
-                        shape = RoundedCornerShape(0.dp),
+                        shape = RoundedCornerShape(10.dp),
                         colors = ButtonDefaults.buttonColors(containerColor = colorResource(R.color.appPrimaryColor)),
                         onClick = {
                             itemTextIsError = mutableItemText.value.isEmpty()

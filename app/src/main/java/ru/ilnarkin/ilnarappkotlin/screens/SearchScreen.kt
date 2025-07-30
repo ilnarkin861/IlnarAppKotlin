@@ -181,7 +181,7 @@ fun SearchScreen (
                                 focusedTextColor = colorResource(R.color.textColor),
                                 unfocusedTextColor = colorResource(R.color.textColor)
                             ),
-                            shape = RoundedCornerShape(0.dp),
+                            shape = RoundedCornerShape(10.dp),
                             trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = noteTypeMenuIsExpanded)}
                         )
                         ExposedDropdownMenu(
@@ -226,7 +226,7 @@ fun SearchScreen (
                                 focusedTextColor = colorResource(R.color.textColor),
                                 unfocusedTextColor = colorResource(R.color.textColor)
                             ),
-                            shape = RoundedCornerShape(0.dp),
+                            shape = RoundedCornerShape(10.dp),
                             trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = yearIsExpanded)}
                         )
                         ExposedDropdownMenu(
@@ -284,7 +284,7 @@ fun SearchScreen (
                                     focusedTextColor = colorResource(R.color.textColor),
                                     unfocusedTextColor = colorResource(R.color.textColor)
                                 ),
-                                shape = RoundedCornerShape(0.dp),
+                                shape = RoundedCornerShape(10.dp),
                                 trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = yearIsExpanded)}
                             )
                             ExposedDropdownMenu(
@@ -342,7 +342,7 @@ fun SearchScreen (
                                 focusedTextColor = colorResource(R.color.textColor),
                                 unfocusedTextColor = colorResource(R.color.textColor)
                             ),
-                            shape = RoundedCornerShape(0.dp),
+                            shape = RoundedCornerShape(10.dp),
                             trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = archiveIsExpanded)}
                         )
                         ExposedDropdownMenu(
@@ -386,7 +386,7 @@ fun SearchScreen (
                     }
 
                     Column(modifier = Modifier.padding(bottom = 55.dp)
-                        .border(1.dp, color = colorResource(R.color.borderColor))) {
+                        .border(1.dp, color = colorResource(R.color.borderColor), shape = RoundedCornerShape(10.dp))) {
 
                         Column(
                             modifier = Modifier
@@ -437,7 +437,7 @@ fun SearchScreen (
                             .fillMaxWidth()
                             .padding(bottom = 10.dp)
                             .height(60.dp),
-                        shape = RoundedCornerShape(0.dp),
+                        shape = RoundedCornerShape(10.dp),
                         colors = ButtonDefaults.buttonColors(containerColor = colorResource(R.color.appPrimaryColor)),
                         onClick = {  }
                     ) {

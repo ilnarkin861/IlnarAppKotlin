@@ -138,7 +138,7 @@ fun NoteFormComponent() {
                     focusedTextColor = colorResource(R.color.textColor),
                     unfocusedTextColor = colorResource(R.color.textColor)
                 ),
-                shape = RoundedCornerShape(0.dp),
+                shape = RoundedCornerShape(10.dp),
                 trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = noteTypeMenuIsExpanded)}
             )
             ExposedDropdownMenu(
@@ -178,7 +178,7 @@ fun NoteFormComponent() {
                     focusedTextColor = colorResource(R.color.titlesColor),
                     unfocusedTextColor = colorResource(R.color.titlesColor)
                 ),
-            shape = RoundedCornerShape(0.dp))
+            shape = RoundedCornerShape(10.dp))
 
 
         //Note text field
@@ -204,7 +204,7 @@ fun NoteFormComponent() {
                     errorLabelColor = Color.Red,
                     errorBorderColor = Color.Red
                 ),
-            shape = RoundedCornerShape(0.dp))
+            shape = RoundedCornerShape(10.dp))
 
         if (isNoteTextError){
             Text(
@@ -237,7 +237,7 @@ fun NoteFormComponent() {
                     )
                 }
             },
-            shape = RoundedCornerShape(0.dp))
+            shape = RoundedCornerShape(10.dp))
         MaterialDialog(
             dialogState = dateDialogState,
             buttons = {
@@ -289,7 +289,7 @@ fun NoteFormComponent() {
                     focusedTextColor = colorResource(R.color.textColor),
                     unfocusedTextColor = colorResource(R.color.textColor)
                 ),
-                shape = RoundedCornerShape(0.dp),
+                shape = RoundedCornerShape(10.dp),
                 trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = archiveIsExpanded)}
             )
             ExposedDropdownMenu(
@@ -340,7 +340,7 @@ fun NoteFormComponent() {
         }
 
         Column(modifier = Modifier
-            .border(1.dp, color = colorResource(R.color.borderColor))) {
+            .border(1.dp, color = colorResource(R.color.borderColor), shape = RoundedCornerShape(10.dp))) {
 
             Column(
                 modifier = Modifier
@@ -397,7 +397,7 @@ fun NoteFormComponent() {
                 )
             }
             Column(modifier = Modifier
-                .border(1.dp, color = colorResource(R.color.borderColor))){
+                .border(1.dp, color = colorResource(R.color.borderColor), shape = RoundedCornerShape(10.dp))){
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -433,7 +433,7 @@ fun NoteFormComponent() {
                 .fillMaxWidth()
                 .padding(top = 50.dp, bottom = 40.dp)
                 .height(60.dp),
-            shape = RoundedCornerShape(0.dp),
+            shape = RoundedCornerShape(10.dp),
             colors = ButtonDefaults.buttonColors(containerColor = colorResource(R.color.appPrimaryColor)),
             onClick = {
                 isNoteTextError = noteText.value.isEmpty()
