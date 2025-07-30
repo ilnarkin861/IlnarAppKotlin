@@ -30,7 +30,7 @@ fun BottomNavigationBar (navController: NavController) {
             var borderStrokeWidth = 2.dp
             val strokeWidthPx = borderStrokeWidth.toPx()
             drawLine(
-                color = Color.Gray,
+                color = Color.LightGray,
                 start = Offset(x = 0f, y = 0f),
                 end = Offset(x = size.width, y = 0f),
                 strokeWidth = strokeWidthPx
