@@ -99,7 +99,6 @@ fun ListItemComponent(
             }
 
         }
-
     }
     HorizontalDivider(thickness = 0.5.dp, color = colorResource(R.color.borderColor))
 }
