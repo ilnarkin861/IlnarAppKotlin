@@ -122,6 +122,8 @@ fun NoteItemComponent(navController: NavController) {
                                 text = {Text(text = "Изменить", color = colorResource(R.color.appPrimaryColor))}
                             )
 
+                            HorizontalDivider(thickness = 0.5.dp, color = colorResource(R.color.borderColor))
+
                             DropdownMenuItem(
                                 onClick = {
                                     deleteButtonClicked = true
