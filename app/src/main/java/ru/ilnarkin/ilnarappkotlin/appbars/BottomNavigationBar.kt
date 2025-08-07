@@ -36,7 +36,7 @@ fun BottomNavigationBar (navController: NavController) {
                 strokeWidth = strokeWidthPx
             )
         },
-        containerColor = colorResource(R.color.bottomBarBgColor),
+        containerColor = Color.White,
     ) {
         val colors = NavigationBarItemDefaults.colors(
             selectedIconColor = colorResource(R.color.appPrimaryColor),
