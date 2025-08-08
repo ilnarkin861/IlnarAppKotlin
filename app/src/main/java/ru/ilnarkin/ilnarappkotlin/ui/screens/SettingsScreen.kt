@@ -1,4 +1,4 @@
-package ru.ilnarkin.ilnarappkotlin.screens
+package ru.ilnarkin.ilnarappkotlin.ui.screens
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxHeight

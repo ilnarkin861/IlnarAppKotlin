@@ -1,4 +1,4 @@
-package ru.ilnarkin.ilnarappkotlin.screens
+package ru.ilnarkin.ilnarappkotlin.ui.screens
 
 
 import androidx.compose.foundation.background
@@ -25,15 +25,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import ru.ilnarkin.ilnarappkotlin.R
-import ru.ilnarkin.ilnarappkotlin.components.ItemModalFormComponent
-import ru.ilnarkin.ilnarappkotlin.components.ListItemComponent
-import ru.ilnarkin.ilnarappkotlin.viewModels.TagViewModel
+import ru.ilnarkin.ilnarappkotlin.ui.components.ItemModalFormComponent
+import ru.ilnarkin.ilnarappkotlin.ui.components.ListItemComponent
+import ru.ilnarkin.ilnarappkotlin.viewModels.ArchiveViewModel
 
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun TagsScreen (tagViewModel: TagViewModel = viewModel()) {
-
+fun ArchiveScreen(archiveViewModel: ArchiveViewModel = viewModel()) {
     Box(modifier = Modifier.fillMaxSize()){
 
         var modalFormOpened by remember { mutableStateOf(false) }
@@ -51,43 +50,39 @@ fun TagsScreen (tagViewModel: TagViewModel = viewModel()) {
         /*Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center){
-            Text("Тегов нет",
+            Text("Архивов нет",
                 fontSize = 16.sp,
                 color = Color.Gray
             )
         }*/
 
         LazyColumn(modifier = Modifier.padding(horizontal = 20.dp)) {
-            items(20) {
-                value ->  ListItemComponent(
-                    text = "Тег ${value + 1}",
-                    currentItem = {
-                        text -> itemText = text
-                        itemFormLabel = "Изменить тег"
+            items(20) {value ->
+                ListItemComponent(
+                    "Архив ${value + 1}",
+                    currentItem = { text ->
+                        itemText = text
+                        itemFormLabel = "Изменить архив"
                         modalFormOpened = true
-                    }
-                )
+                    })
             }
             item {
                 Row(modifier = Modifier.padding(bottom = 100.dp)) {  }
             }
         }
 
-
         FloatingActionButton(
             containerColor = colorResource(R.color.appPrimaryColor),
             contentColor = Color.White,
             shape = CircleShape,
-            modifier = Modifier
-                .align(Alignment.BottomEnd)
-                .absolutePadding(bottom = 30.dp, right = 30.dp)
-                .background(Color.Transparent),
+            modifier = Modifier.align(Alignment.BottomEnd)
+                .absolutePadding(bottom=30.dp, right=30.dp).background(Color.Transparent),
             onClick = {
                 itemText = ""
-                itemFormLabel = "Добавить тег"
+                itemFormLabel = "Добавить архив"
                 modalFormOpened = true
             }) {
-            Icon(painter = painterResource(R.drawable.ic_add), contentDescription = "Добавить")
+            Icon(painter = painterResource(R.drawable.ic_archive_add), contentDescription = "Добавить")
         }
     }
 }

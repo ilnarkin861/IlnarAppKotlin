@@ -1,4 +1,4 @@
-package ru.ilnarkin.ilnarappkotlin.components
+package ru.ilnarkin.ilnarappkotlin.ui.components
 
 
 import androidx.compose.foundation.background

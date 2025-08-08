@@ -1,4 +1,4 @@
-package ru.ilnarkin.ilnarappkotlin.screens
+package ru.ilnarkin.ilnarappkotlin.ui.screens
 
 
 import android.os.Build
@@ -53,7 +53,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import ru.ilnarkin.ilnarappkotlin.R
-import ru.ilnarkin.ilnarappkotlin.components.NoteItemComponent
+import ru.ilnarkin.ilnarappkotlin.ui.components.NoteItemComponent
 import ru.ilnarkin.ilnarappkotlin.viewModels.ArchiveViewModel
 import ru.ilnarkin.ilnarappkotlin.viewModels.NoteViewModel
 import ru.ilnarkin.ilnarappkotlin.viewModels.TagViewModel

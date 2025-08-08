@@ -1,4 +1,5 @@
-package ru.ilnarkin.ilnarappkotlin.components
+package ru.ilnarkin.ilnarappkotlin.ui.components
+
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -24,55 +25,45 @@ import ru.ilnarkin.ilnarappkotlin.R
 
 
 @Composable
-fun ConfirmComponent(closed: () -> Unit, confirmed: () -> Unit){
+fun AlertComponent(success: Boolean, message: String) {
 
     val dialogState = rememberMaterialDialogState()
     dialogState.show()
 
     MaterialDialog(
         dialogState = dialogState,
-        onCloseRequest = {
-            closed()
-        },
         shape = MaterialTheme.shapes.extraSmall,
         buttons = {
-            negativeButton(
-                text = "Нет",
+            positiveButton(
+                text = "Понятно",
                 textStyle = TextStyle(
                     color = colorResource(R.color.titlesColor),
                     fontWeight = FontWeight.SemiBold),
-                onClick = {
-                    dialogState.hide()
-                    closed()
-                }
-            )
-
-            positiveButton(
-                text = "Да",
-                textStyle = TextStyle(
-                    color = colorResource(R.color.errorColor),
-                    fontWeight = FontWeight.SemiBold),
-                onClick = {
-                    dialogState.hide()
-                    closed()
-                    confirmed()
-                }
+                onClick = {dialogState.hide()}
             )
         }
     ) {
         Column(
             modifier = Modifier.background(Color.White),
 
-            ) {
+        ) {
             Row(
                 modifier = Modifier.fillMaxWidth().padding(top = 15.dp, bottom = 10.dp),
                 horizontalArrangement = Arrangement.Center
             ) {
-                Icon(
-                    modifier = Modifier.size(60.dp),
-                    painter = painterResource(R.drawable.ic_warning),
-                    contentDescription = "",
-                    tint = colorResource(R.color.warningColor))
+                if (!success)
+                    Icon(
+                        modifier = Modifier.size(60.dp),
+                        painter = painterResource(R.drawable.ic_error),
+                        contentDescription = "",
+                        tint = colorResource(R.color.errorColor))
+                else{
+                    Icon(
+                        modifier = Modifier.size(60.dp),
+                        painter = painterResource(R.drawable.ic_success),
+                        contentDescription = "",
+                        tint = colorResource(R.color.successColor))
+                }
             }
 
             Row(
@@ -80,11 +71,12 @@ fun ConfirmComponent(closed: () -> Unit, confirmed: () -> Unit){
                 horizontalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = "Точно хочешь удалить?",
+                    text = message,
                     fontWeight = FontWeight.Medium,
-                    color = colorResource(R.color.warningColor)
+                    color = if (!success) colorResource(R.color.errorColor) else colorResource(R.color.successColor)
                 )
             }
         }
+
     }
 }

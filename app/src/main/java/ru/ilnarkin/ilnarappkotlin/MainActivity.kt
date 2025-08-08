@@ -23,14 +23,14 @@ import androidx.navigation.compose.rememberNavController
 import ru.ilnarkin.ilnarappkotlin.appbars.BottomNavigationBar
 import ru.ilnarkin.ilnarappkotlin.appbars.TopBar
 import ru.ilnarkin.ilnarappkotlin.routes.NavRoutes
-import ru.ilnarkin.ilnarappkotlin.screens.ArchiveScreen
-import ru.ilnarkin.ilnarappkotlin.screens.NoteAddScreen
-import ru.ilnarkin.ilnarappkotlin.screens.NoteEditScreen
-import ru.ilnarkin.ilnarappkotlin.screens.NoteViewScreen
-import ru.ilnarkin.ilnarappkotlin.screens.NotesScreen
-import ru.ilnarkin.ilnarappkotlin.screens.SearchScreen
-import ru.ilnarkin.ilnarappkotlin.screens.SettingsScreen
-import ru.ilnarkin.ilnarappkotlin.screens.TagsScreen
+import ru.ilnarkin.ilnarappkotlin.ui.screens.ArchiveScreen
+import ru.ilnarkin.ilnarappkotlin.ui.screens.NoteAddScreen
+import ru.ilnarkin.ilnarappkotlin.ui.screens.NoteEditScreen
+import ru.ilnarkin.ilnarappkotlin.ui.screens.NoteViewScreen
+import ru.ilnarkin.ilnarappkotlin.ui.screens.NotesScreen
+import ru.ilnarkin.ilnarappkotlin.ui.screens.SearchScreen
+import ru.ilnarkin.ilnarappkotlin.ui.screens.SettingsScreen
+import ru.ilnarkin.ilnarappkotlin.ui.screens.TagsScreen
 
 
 class MainActivity : ComponentActivity() {
